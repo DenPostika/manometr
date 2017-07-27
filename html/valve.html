@@ -14,7 +14,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
     $(function() {
-        var socket = io.connect('http://localhost:5000');
+        var socket = io.connect('https://hygrometer.herokuapp.com/');
 
         $('input[type=range]').on('input', function () {
             socket.emit('hydrogen', { value: $(this)[0].value });
