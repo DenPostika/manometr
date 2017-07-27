@@ -1,0 +1,12 @@
+.gauge-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.gauge-arrow {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    margin-left: -16px;
+    transform-origin: 50% 75.5%;
+}

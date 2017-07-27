@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Valve</title>
+</head>
+<body>
+
+<div id="wrap">
+    <input type="range" min="0" mac="100" step="1" width="300px" value="0">
+    <span id="value">Current value: 0</span>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    $(function() {
+        var socket = io.connect('http://localhost:5000');
+
+        $('input[type=range]').on('input', function () {
+            socket.emit('hydrogen', { value: $(this)[0].value });
+            $('#value').html('Current value: ' + $(this)[0].value);
+        });
+    });
+</script>
+</body>
+</html>

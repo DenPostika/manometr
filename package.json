@@ -1,0 +1,24 @@
+{
+  "name": "manometr",
+  "version": "1.0.0",
+  "description": "Interactive manometr on socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenPostika/manometr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenPostika/manometr/issues"
+  },
+  "homepage": "https://github.com/DenPostika/manometr#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.3"
+  }
+}
