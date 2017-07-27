@@ -21,6 +21,10 @@ exports.io = function () {
 io.on('connection', function(socket){
     socket.on('hydrogen', function(data){
         io.emit('data', data)
+    });
+
+    socket.on('lamps', function(data){
+        io.emit('lampsData', data)
     })
 });
 

@@ -9,7 +9,13 @@
 <div class="gauge-wrapper">
     <img src="./gauge.png" class="gauge">
     <img src="./arrow.png" class="gauge-arrow">
+    <div class="lamps-wrapper">
+        <div class="led-red"></div>
+        <div class="led-yellow"></div>
+        <div class="led-green"></div>
+    </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="/socket.io/socket.io.js"></script>
@@ -18,6 +24,7 @@
         var socket = io.connect('https://hygrometer.herokuapp.com/');
 
         $('.gauge-arrow').css('transform', 'rotate(-150deg)');
+        offAllLamps();
 
         socket.on('data', function(data){
             if(data.value <= 50) {
@@ -26,6 +33,17 @@
                 $('.gauge-arrow').css('transform', 'rotate(' + ((150 - (data.value * 3))*-1) + 'deg)');
             }
         })
+
+        socket.on('lampsData', function(data){
+            offAllLamps();
+            $('.led-'+data.value).removeClass('off_led-'+data.value);
+        })
+
+        function offAllLamps(){
+            $('.led-red').addClass('off_led-red');
+            $('.led-yellow').addClass('off_led-yellow');
+            $('.led-green').addClass('off_led-green');
+        }
     });
 </script>
 </body>
